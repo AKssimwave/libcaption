@@ -1,0 +1,728 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="libcaption"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\src\;CMake Files\examples\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/art/git/libcaption"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/art/git/libcaption/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/art/git/libcaption/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/art/git/libcaption/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/art/git/libcaption/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/strip">
+				<Option working_dir="/home/art/git/libcaption"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/art/git/libcaption/Makefile&quot;  VERBOSE=1 install/strip"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/art/git/libcaption/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/art/git/libcaption/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/art/git/libcaption/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/local">
+				<Option working_dir="/home/art/git/libcaption"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/art/git/libcaption/Makefile&quot;  VERBOSE=1 install/local"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/art/git/libcaption/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/art/git/libcaption/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/art/git/libcaption/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install">
+				<Option working_dir="/home/art/git/libcaption"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/art/git/libcaption/Makefile&quot;  VERBOSE=1 install"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/art/git/libcaption/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/art/git/libcaption/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/art/git/libcaption/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="list_install_components">
+				<Option working_dir="/home/art/git/libcaption"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/art/git/libcaption/Makefile&quot;  VERBOSE=1 list_install_components"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/art/git/libcaption/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/art/git/libcaption/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/art/git/libcaption/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_wrap">
+				<Option output="/home/art/git/libcaption/test_wrap" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/art/git/libcaption"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D__STDC_CONSTANT_MACROS"/>
+					<Add directory="/home/art/git/libcaption/caption"/>
+					<Add directory="/home/art/git/libcaption"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/art/git/libcaption/Makefile&quot;  VERBOSE=1 test_wrap"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/art/git/libcaption/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/art/git/libcaption/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/art/git/libcaption/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_wrap/fast">
+				<Option output="/home/art/git/libcaption/test_wrap" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/art/git/libcaption"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D__STDC_CONSTANT_MACROS"/>
+					<Add directory="/home/art/git/libcaption/caption"/>
+					<Add directory="/home/art/git/libcaption"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/art/git/libcaption/Makefile&quot;  VERBOSE=1 test_wrap/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/art/git/libcaption/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/art/git/libcaption/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/art/git/libcaption/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/art/git/libcaption"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/art/git/libcaption/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/art/git/libcaption/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/art/git/libcaption/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/art/git/libcaption/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="caption">
+				<Option output="/home/art/git/libcaption/libcaption.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/art/git/libcaption"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D__STDC_CONSTANT_MACROS"/>
+					<Add directory="/home/art/git/libcaption/caption"/>
+					<Add directory="/home/art/git/libcaption"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/art/git/libcaption/Makefile&quot;  VERBOSE=1 caption"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/art/git/libcaption/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/art/git/libcaption/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/art/git/libcaption/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="caption/fast">
+				<Option output="/home/art/git/libcaption/libcaption.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/art/git/libcaption"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D__STDC_CONSTANT_MACROS"/>
+					<Add directory="/home/art/git/libcaption/caption"/>
+					<Add directory="/home/art/git/libcaption"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/art/git/libcaption/Makefile&quot;  VERBOSE=1 caption/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/art/git/libcaption/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/art/git/libcaption/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/art/git/libcaption/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/art/git/libcaption"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/art/git/libcaption/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/art/git/libcaption/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/art/git/libcaption/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/art/git/libcaption/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="vttsegmenter">
+				<Option output="/home/art/git/libcaption/examples/vttsegmenter" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/art/git/libcaption/examples"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D__STDC_CONSTANT_MACROS"/>
+					<Add directory="/home/art/git/libcaption/caption"/>
+					<Add directory="/home/art/git/libcaption"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 vttsegmenter"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="vttsegmenter/fast">
+				<Option output="/home/art/git/libcaption/examples/vttsegmenter" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/art/git/libcaption/examples"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D__STDC_CONSTANT_MACROS"/>
+					<Add directory="/home/art/git/libcaption/caption"/>
+					<Add directory="/home/art/git/libcaption"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 vttsegmenter/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="party">
+				<Option output="/home/art/git/libcaption/examples/party" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/art/git/libcaption/examples"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D__STDC_CONSTANT_MACROS"/>
+					<Add directory="/home/art/git/libcaption/caption"/>
+					<Add directory="/home/art/git/libcaption"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 party"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="party/fast">
+				<Option output="/home/art/git/libcaption/examples/party" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/art/git/libcaption/examples"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D__STDC_CONSTANT_MACROS"/>
+					<Add directory="/home/art/git/libcaption/caption"/>
+					<Add directory="/home/art/git/libcaption"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 party/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rollup">
+				<Option output="/home/art/git/libcaption/examples/rollup" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/art/git/libcaption/examples"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D__STDC_CONSTANT_MACROS"/>
+					<Add directory="/home/art/git/libcaption/caption"/>
+					<Add directory="/home/art/git/libcaption"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 rollup"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rollup/fast">
+				<Option output="/home/art/git/libcaption/examples/rollup" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/art/git/libcaption/examples"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D__STDC_CONSTANT_MACROS"/>
+					<Add directory="/home/art/git/libcaption/caption"/>
+					<Add directory="/home/art/git/libcaption"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 rollup/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="srt2vtt">
+				<Option output="/home/art/git/libcaption/examples/srt2vtt" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/art/git/libcaption/examples"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D__STDC_CONSTANT_MACROS"/>
+					<Add directory="/home/art/git/libcaption/caption"/>
+					<Add directory="/home/art/git/libcaption"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 srt2vtt"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="srt2vtt/fast">
+				<Option output="/home/art/git/libcaption/examples/srt2vtt" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/art/git/libcaption/examples"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D__STDC_CONSTANT_MACROS"/>
+					<Add directory="/home/art/git/libcaption/caption"/>
+					<Add directory="/home/art/git/libcaption"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 srt2vtt/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ts2srt">
+				<Option output="/home/art/git/libcaption/examples/ts2srt" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/art/git/libcaption/examples"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D__STDC_CONSTANT_MACROS"/>
+					<Add directory="/home/art/git/libcaption/caption"/>
+					<Add directory="/home/art/git/libcaption"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 ts2srt"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ts2srt/fast">
+				<Option output="/home/art/git/libcaption/examples/ts2srt" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/art/git/libcaption/examples"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D__STDC_CONSTANT_MACROS"/>
+					<Add directory="/home/art/git/libcaption/caption"/>
+					<Add directory="/home/art/git/libcaption"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 ts2srt/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="flv2srt">
+				<Option output="/home/art/git/libcaption/examples/flv2srt" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/art/git/libcaption/examples"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D__STDC_CONSTANT_MACROS"/>
+					<Add directory="/home/art/git/libcaption/caption"/>
+					<Add directory="/home/art/git/libcaption"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 flv2srt"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="flv2srt/fast">
+				<Option output="/home/art/git/libcaption/examples/flv2srt" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/art/git/libcaption/examples"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D__STDC_CONSTANT_MACROS"/>
+					<Add directory="/home/art/git/libcaption/caption"/>
+					<Add directory="/home/art/git/libcaption"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 flv2srt/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="flv+scc">
+				<Option output="/home/art/git/libcaption/examples/flv+scc" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/art/git/libcaption/examples"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D__STDC_CONSTANT_MACROS"/>
+					<Add directory="/home/art/git/libcaption/caption"/>
+					<Add directory="/home/art/git/libcaption"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 flv+scc"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="flv+scc/fast">
+				<Option output="/home/art/git/libcaption/examples/flv+scc" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/art/git/libcaption/examples"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D__STDC_CONSTANT_MACROS"/>
+					<Add directory="/home/art/git/libcaption/caption"/>
+					<Add directory="/home/art/git/libcaption"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 flv+scc/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="scc2vtt">
+				<Option output="/home/art/git/libcaption/examples/scc2vtt" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/art/git/libcaption/examples"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D__STDC_CONSTANT_MACROS"/>
+					<Add directory="/home/art/git/libcaption/caption"/>
+					<Add directory="/home/art/git/libcaption"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 scc2vtt"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="scc2vtt/fast">
+				<Option output="/home/art/git/libcaption/examples/scc2vtt" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/art/git/libcaption/examples"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D__STDC_CONSTANT_MACROS"/>
+					<Add directory="/home/art/git/libcaption/caption"/>
+					<Add directory="/home/art/git/libcaption"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 scc2vtt/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="scc2srt">
+				<Option output="/home/art/git/libcaption/examples/scc2srt" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/art/git/libcaption/examples"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D__STDC_CONSTANT_MACROS"/>
+					<Add directory="/home/art/git/libcaption/caption"/>
+					<Add directory="/home/art/git/libcaption"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 scc2srt"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="scc2srt/fast">
+				<Option output="/home/art/git/libcaption/examples/scc2srt" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/art/git/libcaption/examples"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D__STDC_CONSTANT_MACROS"/>
+					<Add directory="/home/art/git/libcaption/caption"/>
+					<Add directory="/home/art/git/libcaption"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 scc2srt/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="sccdump">
+				<Option output="/home/art/git/libcaption/examples/sccdump" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/art/git/libcaption/examples"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D__STDC_CONSTANT_MACROS"/>
+					<Add directory="/home/art/git/libcaption/caption"/>
+					<Add directory="/home/art/git/libcaption"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 sccdump"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="sccdump/fast">
+				<Option output="/home/art/git/libcaption/examples/sccdump" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/art/git/libcaption/examples"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D__STDC_CONSTANT_MACROS"/>
+					<Add directory="/home/art/git/libcaption/caption"/>
+					<Add directory="/home/art/git/libcaption"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 sccdump/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="flv+srt">
+				<Option output="/home/art/git/libcaption/examples/flv+srt" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/art/git/libcaption/examples"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D__STDC_CONSTANT_MACROS"/>
+					<Add directory="/home/art/git/libcaption/caption"/>
+					<Add directory="/home/art/git/libcaption"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 flv+srt"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="flv+srt/fast">
+				<Option output="/home/art/git/libcaption/examples/flv+srt" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/art/git/libcaption/examples"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D__STDC_CONSTANT_MACROS"/>
+					<Add directory="/home/art/git/libcaption/caption"/>
+					<Add directory="/home/art/git/libcaption"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 flv+srt/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="vttdump">
+				<Option output="/home/art/git/libcaption/examples/vttdump" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/art/git/libcaption/examples"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D__STDC_CONSTANT_MACROS"/>
+					<Add directory="/home/art/git/libcaption/caption"/>
+					<Add directory="/home/art/git/libcaption"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 vttdump"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="vttdump/fast">
+				<Option output="/home/art/git/libcaption/examples/vttdump" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/art/git/libcaption/examples"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D__STDC_CONSTANT_MACROS"/>
+					<Add directory="/home/art/git/libcaption/caption"/>
+					<Add directory="/home/art/git/libcaption"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 vttdump/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="srtdump">
+				<Option output="/home/art/git/libcaption/examples/srtdump" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/art/git/libcaption/examples"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D__STDC_CONSTANT_MACROS"/>
+					<Add directory="/home/art/git/libcaption/caption"/>
+					<Add directory="/home/art/git/libcaption"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 srtdump"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="srtdump/fast">
+				<Option output="/home/art/git/libcaption/examples/srtdump" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/art/git/libcaption/examples"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D__STDC_CONSTANT_MACROS"/>
+					<Add directory="/home/art/git/libcaption/caption"/>
+					<Add directory="/home/art/git/libcaption"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 srtdump/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/art/git/libcaption/examples/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/art/git/libcaption/examples/flv+scc.c">
+			<Option target="flv+scc"/>
+		</Unit>
+		<Unit filename="/home/art/git/libcaption/examples/flv+srt.c">
+			<Option target="flv+srt"/>
+		</Unit>
+		<Unit filename="/home/art/git/libcaption/examples/flv.c">
+			<Option target="party"/>
+			<Option target="rollup"/>
+			<Option target="flv2srt"/>
+			<Option target="flv+scc"/>
+			<Option target="sccdump"/>
+			<Option target="flv+srt"/>
+		</Unit>
+		<Unit filename="/home/art/git/libcaption/examples/flv.h">
+			<Option target="party"/>
+			<Option target="rollup"/>
+			<Option target="flv2srt"/>
+			<Option target="flv+scc"/>
+			<Option target="sccdump"/>
+			<Option target="flv+srt"/>
+		</Unit>
+		<Unit filename="/home/art/git/libcaption/examples/flv2srt.c">
+			<Option target="flv2srt"/>
+		</Unit>
+		<Unit filename="/home/art/git/libcaption/examples/party.c">
+			<Option target="party"/>
+		</Unit>
+		<Unit filename="/home/art/git/libcaption/examples/rollup.c">
+			<Option target="rollup"/>
+		</Unit>
+		<Unit filename="/home/art/git/libcaption/examples/scc2srt.c">
+			<Option target="scc2srt"/>
+		</Unit>
+		<Unit filename="/home/art/git/libcaption/examples/scc2vtt.c">
+			<Option target="scc2vtt"/>
+		</Unit>
+		<Unit filename="/home/art/git/libcaption/examples/sccdump.c">
+			<Option target="sccdump"/>
+		</Unit>
+		<Unit filename="/home/art/git/libcaption/examples/srt2vtt.c">
+			<Option target="srt2vtt"/>
+		</Unit>
+		<Unit filename="/home/art/git/libcaption/examples/srtdump.c">
+			<Option target="srtdump"/>
+		</Unit>
+		<Unit filename="/home/art/git/libcaption/examples/ts.c">
+			<Option target="ts2srt"/>
+		</Unit>
+		<Unit filename="/home/art/git/libcaption/examples/ts.h">
+			<Option target="ts2srt"/>
+		</Unit>
+		<Unit filename="/home/art/git/libcaption/examples/ts2srt.c">
+			<Option target="ts2srt"/>
+		</Unit>
+		<Unit filename="/home/art/git/libcaption/examples/vttdump.c">
+			<Option target="vttdump"/>
+		</Unit>
+		<Unit filename="/home/art/git/libcaption/examples/vttsegmenter.c">
+			<Option target="vttsegmenter"/>
+		</Unit>
+		<Unit filename="/home/art/git/libcaption/src/caption.c">
+			<Option target="caption"/>
+		</Unit>
+		<Unit filename="/home/art/git/libcaption/src/cea708.c">
+			<Option target="caption"/>
+		</Unit>
+		<Unit filename="/home/art/git/libcaption/src/eia608.c">
+			<Option target="caption"/>
+		</Unit>
+		<Unit filename="/home/art/git/libcaption/src/eia608_charmap.c">
+			<Option target="caption"/>
+		</Unit>
+		<Unit filename="/home/art/git/libcaption/src/eia608_from_utf8.c">
+			<Option target="caption"/>
+		</Unit>
+		<Unit filename="/home/art/git/libcaption/src/mpeg.c">
+			<Option target="caption"/>
+		</Unit>
+		<Unit filename="/home/art/git/libcaption/src/scc.c">
+			<Option target="caption"/>
+		</Unit>
+		<Unit filename="/home/art/git/libcaption/src/srt.c">
+			<Option target="caption"/>
+		</Unit>
+		<Unit filename="/home/art/git/libcaption/src/utf8.c">
+			<Option target="caption"/>
+		</Unit>
+		<Unit filename="/home/art/git/libcaption/src/vtt.c">
+			<Option target="caption"/>
+		</Unit>
+		<Unit filename="/home/art/git/libcaption/src/xds.c">
+			<Option target="caption"/>
+		</Unit>
+		<Unit filename="/home/art/git/libcaption/unit_tests/test_wrap.c">
+			<Option target="test_wrap"/>
+		</Unit>
+		<Unit filename="/home/art/git/libcaption/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/art/git/libcaption/src/eia608_from_utf8.c.cached">
+			<Option virtualFolder="CMake Files\src\"/>
+		</Unit>
+		<Unit filename="/home/art/git/libcaption/examples/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\examples\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

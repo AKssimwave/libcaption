@@ -25,6 +25,28 @@
 #include "xds.h"
 #include "caption.h"
 #include <string.h>
+#include <xds.h>
+
+int is_control_code_continue(uint8_t c) {
+    return c == 0x02 ||
+           c == 0x04 ||
+           c == 0x06 ||
+           c == 0x08 ||
+           c == 0x0A ||
+           c == 0x0C ||
+           c == 0x0E;
+}
+
+int is_valid_class_start_code(uint8_t c) {
+    return c == CURRENT ||
+           c == FUTURE ||
+           c == CHANNEL ||
+           c == MISC ||
+           c == PUBLIC_SERVICE ||
+           c == CLASS_RESERVED ||
+           c == PRIVATE_DATA;
+
+}
 
 void xds_init(xds_t* xds)
 {
@@ -33,16 +55,35 @@ void xds_init(xds_t* xds)
 
 int xds_decode(xds_t* xds, uint16_t cc)
 {
+    uint8_t byte_1 = (cc & 0xFF00) >> 8;
+    uint8_t byte_2 = cc & 0x00FF;
     switch (xds->state) {
     default:
     case 0:
         xds_init(xds);
-        xds->class_code = (cc & 0x0F00) >> 8;
-        xds->type = (cc & 0x000F);
+        xds->class = byte_1;
+        if (!is_valid_class_start_code(byte_1)) {
+            //FAILBECAUSE class start code is invalid
+            return LIBCAPTION_ERROR;
+        }
+
+        xds->type = byte_2;
         xds->state = 1;
+        xds->location = CONTENT;
         return LIBCAPTION_OK;
 
     case 1:
+        //check if this is a continuation of an xds packet
+        if (is_control_code_continue(byte_1)) {
+            //check if the content code is the same after a continue
+            if(xds->type == byte_2) {
+                return LIBCAPTION_OK;
+            } else {
+                xds->state = 0;
+                return LIBCAPTION_ERROR;
+            }
+        }
+
         if (0x8F00 == (cc & 0xFF00)) {
             xds->checksum = (cc & 0x007F);
             xds->state = 0;

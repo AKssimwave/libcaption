@@ -30,9 +30,41 @@ extern "C" {
 #include <inttypes.h>
 #include <stddef.h>
 
+typedef enum {
+    CONTENT = 0,
+    POST_CONTENT = 1,
+    CHECKSUM = 2
+} frame_location;
+
+// Define Class Type Start Codes
+#define CURRENT 0x01
+#define FUTURE 0x03
+#define CHANNEL 0x05
+#define MISC 0x07
+#define PUBLIC_SERVICE 0x09
+#define CLASS_RESERVED 0x0B
+#define PRIVATE_DATA 0x0D
+
+// Define Program Information Class Types
+#define START_TIME 0x01
+#define LENGTH 0x02
+#define TITLE 0x03
+#define PROGRAM_TYPE 0x04
+#define CONTENT_ADVISORY 0x05
+#define AUDIO_SERVICES 0x06
+#define CAPTION_SERVICES 0x07
+#define COPYRIGHT 0x08
+#define PI_RESERVED 0x09
+#define COMPOSITE_P1 0x0C
+#define COMPOSITE_p2 0x0D
+//0x10 to 0x17 are program description rows 1 to 8
+
+
 typedef struct {
     int state;
-    uint8_t class_code;
+    frame_location location;
+
+    uint8_t class;
     uint8_t type;
     uint32_t size;
     uint8_t content[32];
