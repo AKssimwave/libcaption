@@ -33,7 +33,6 @@
 static size_t _find_emulation_prevention_byte(const uint8_t* data, size_t size)
 {
     size_t offset = 2;
-
     while (offset < size) {
         if (0 == data[offset]) {
             // 0 0 X 3 //; we know X is zero
@@ -322,7 +321,7 @@ uint8_t* sei_render_alloc(sei_t* sei, size_t* size)
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-libcaption_stauts_t sei_parse(sei_t* sei, const uint8_t* data, size_t size, double timestamp)
+libcaption_status_t sei_parse(sei_t* sei, const uint8_t* data, size_t size, double timestamp)
 {
     sei_init(sei, timestamp);
     int ret = 0;
@@ -376,11 +375,11 @@ libcaption_stauts_t sei_parse(sei_t* sei, const uint8_t* data, size_t size, doub
     return LIBCAPTION_OK;
 }
 ////////////////////////////////////////////////////////////////////////////////
-libcaption_stauts_t sei_to_caption_frame(sei_t* sei, caption_frame_t* frame)
+libcaption_status_t sei_to_caption_frame(sei_t* sei, caption_frame_t* frame)
 {
     cea708_t cea708;
     sei_message_t* msg;
-    libcaption_stauts_t status = LIBCAPTION_OK;
+    libcaption_status_t status = LIBCAPTION_OK;
 
     cea708_init(&cea708, frame->timestamp);
 
@@ -435,7 +434,7 @@ void sei_encode_eia608(sei_t* sei, cea708_t* cea708, uint16_t cc_data)
 }
 ////////////////////////////////////////////////////////////////////////////////
 // TODO move this out of sei
-libcaption_stauts_t sei_from_caption_frame(sei_t* sei, caption_frame_t* frame)
+libcaption_status_t sei_from_caption_frame(sei_t* sei, caption_frame_t* frame)
 {
     int r, c;
     int unl, prev_unl;
@@ -484,6 +483,8 @@ libcaption_stauts_t sei_from_caption_frame(sei_t* sei, caption_frame_t* frame)
 
             if (!cc_data) {
                 // We do't want to write bad data, so just ignore it.
+                // set status as invalid character
+                status_detail_set(&frame->detail, LIBCAPTION_INVALID_CHARACTER);
             } else if (eia608_is_basicna(prev_cc_data)) {
                 if (eia608_is_basicna(cc_data)) {
                     // previous and current chars are both basicna, combine them into current
@@ -529,7 +530,7 @@ libcaption_stauts_t sei_from_caption_frame(sei_t* sei, caption_frame_t* frame)
     return LIBCAPTION_OK;
 }
 
-libcaption_stauts_t sei_from_scc(sei_t* sei, const scc_t* scc)
+libcaption_status_t sei_from_scc(sei_t* sei, const scc_t* scc)
 {
     unsigned int i;
     cea708_t cea708;
@@ -550,7 +551,7 @@ libcaption_stauts_t sei_from_scc(sei_t* sei, const scc_t* scc)
     return LIBCAPTION_OK;
 }
 
-libcaption_stauts_t sei_from_caption_clear(sei_t* sei)
+libcaption_status_t sei_from_caption_clear(sei_t* sei)
 {
     cea708_t cea708;
     cea708_init(&cea708, sei->timestamp); // set up a new popon frame
@@ -675,6 +676,7 @@ size_t mpeg_bitstream_parse(mpeg_bitstream_t* packet, caption_frame_t* frame, co
 {
     if (MAX_NALU_SIZE <= packet->size) {
         packet->status = LIBCAPTION_ERROR;
+        ++(frame->detail.packetErrors);
         // fprintf(stderr, "LIBCAPTION_ERROR\n");
         return 0;
     }
@@ -727,10 +729,10 @@ size_t mpeg_bitstream_parse(mpeg_bitstream_t* packet, caption_frame_t* frame, co
 }
 ////////////////////////////////////////////////////////////////////////////////
 // // h262
-// libcaption_stauts_t h262_user_data_to_caption_frame(caption_frame_t* frame, mpeg_bitstream_t* packet, double dts, double cts)
+// libcaption_status_t h262_user_data_to_caption_frame(caption_frame_t* frame, mpeg_bitstream_t* packet, double dts, double cts)
 // {
 //     cea708_t cea708;
-//     libcaption_stauts_t status = LIBCAPTION_OK;
+//     libcaption_status_t status = LIBCAPTION_OK;
 
 //     cea708_init(&cea708);
 //     size_t size = mpeg_bitstream_size(packet, STREAM_TYPE_H262);

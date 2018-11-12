@@ -28,6 +28,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
+
 ////////////////////////////////////////////////////////////////////////////////
 void caption_frame_buffer_clear(caption_frame_buffer_t* buff)
 {
@@ -41,12 +42,19 @@ void caption_frame_state_clear(caption_frame_t* frame)
     frame->state = (caption_frame_state_t){ 0, 0, 0, SCREEN_ROWS - 1, 0, 0 }; // clear global state
 }
 
+void status_detail_init(caption_frame_status_detail_t* d)
+{
+    d->types = 0;
+    d->packetErrors = 0;
+}
+
 void caption_frame_init(caption_frame_t* frame)
 {
     xds_init(&frame->xds);
     caption_frame_state_clear(frame);
     caption_frame_buffer_clear(&frame->back);
     caption_frame_buffer_clear(&frame->front);
+    status_detail_init(&frame->detail);
 }
 ////////////////////////////////////////////////////////////////////////////////
 // Helpers
@@ -107,9 +115,11 @@ const utf8_char_t* caption_frame_read_char(caption_frame_t* frame, int row, int 
 
 ////////////////////////////////////////////////////////////////////////////////
 // Parsing
-libcaption_stauts_t caption_frame_carriage_return(caption_frame_t* frame)
+libcaption_status_t caption_frame_carriage_return(caption_frame_t* frame)
 {
+    // carriage return off screen, why is this an error?
     if (0 > frame->state.row || SCREEN_ROWS <= frame->state.row) {
+        status_detail_set(&frame->detail, LIBCAPTION_DETAIL_OFF_SCREEN);
         return LIBCAPTION_ERROR;
     }
 
@@ -131,10 +141,12 @@ libcaption_stauts_t caption_frame_carriage_return(caption_frame_t* frame)
     return LIBCAPTION_OK;
 }
 ////////////////////////////////////////////////////////////////////////////////
-libcaption_stauts_t eia608_write_char(caption_frame_t* frame, char* c)
+libcaption_status_t eia608_write_char(caption_frame_t* frame, char* c)
 {
     if (0 == c || 0 == c[0] || SCREEN_ROWS <= frame->state.row || 0 > frame->state.row || SCREEN_COLS <= frame->state.col || 0 > frame->state.col) {
         // NO-OP
+        // detail off screen, trying to write the character out of bounds
+        status_detail_set(&frame->detail, LIBCAPTION_DETAIL_OFF_SCREEN);
     } else if (caption_frame_write_char(frame, frame->state.row, frame->state.col, frame->state.sty, frame->state.uln, c)) {
         frame->state.col += 1;
     }
@@ -142,18 +154,20 @@ libcaption_stauts_t eia608_write_char(caption_frame_t* frame, char* c)
     return LIBCAPTION_OK;
 }
 
-libcaption_stauts_t caption_frame_end(caption_frame_t* frame)
+libcaption_status_t caption_frame_end(caption_frame_t* frame)
 {
     memcpy(&frame->front, &frame->back, sizeof(caption_frame_buffer_t));
     caption_frame_buffer_clear(&frame->back); // This is required
     return LIBCAPTION_READY;
 }
 
-libcaption_stauts_t caption_frame_decode_preamble(caption_frame_t* frame, uint16_t cc_data)
+libcaption_status_t caption_frame_decode_preamble(caption_frame_t* frame, uint16_t cc_data)
 {
     eia608_style_t sty;
     int row, col, chn, uln;
 
+    // TODO - something about an invalid preamble access code?
+    // for now eia608 always returns 1
     if (eia608_parse_preamble(cc_data, &row, &col, &sty, &chn, &uln)) {
         frame->state.row = row;
         frame->state.col = col;
@@ -164,7 +178,7 @@ libcaption_stauts_t caption_frame_decode_preamble(caption_frame_t* frame, uint16
     return LIBCAPTION_OK;
 }
 
-libcaption_stauts_t caption_frame_decode_midrowchange(caption_frame_t* frame, uint16_t cc_data)
+libcaption_status_t caption_frame_decode_midrowchange(caption_frame_t* frame, uint16_t cc_data)
 {
     eia608_style_t sty;
     int chn, unl;
@@ -177,7 +191,7 @@ libcaption_stauts_t caption_frame_decode_midrowchange(caption_frame_t* frame, ui
     return LIBCAPTION_OK;
 }
 
-libcaption_stauts_t caption_frame_backspace(caption_frame_t* frame)
+libcaption_status_t caption_frame_backspace(caption_frame_t* frame)
 {
     // do not reverse wrap (tw 28:20)
     frame->state.col = (0 < frame->state.col) ? (frame->state.col - 1) : 0;
@@ -185,7 +199,7 @@ libcaption_stauts_t caption_frame_backspace(caption_frame_t* frame)
     return LIBCAPTION_READY;
 }
 
-libcaption_stauts_t caption_frame_delete_to_end_of_row(caption_frame_t* frame)
+libcaption_status_t caption_frame_delete_to_end_of_row(caption_frame_t* frame)
 {
     int c;
     if (frame->write) {
@@ -201,7 +215,7 @@ libcaption_stauts_t caption_frame_delete_to_end_of_row(caption_frame_t* frame)
     return LIBCAPTION_READY;
 }
 
-libcaption_stauts_t caption_frame_decode_control(caption_frame_t* frame, uint16_t cc_data)
+libcaption_status_t caption_frame_decode_control(caption_frame_t* frame, uint16_t cc_data)
 {
     int cc;
     eia608_control_t cmd = eia608_parse_control(cc_data, &cc);
@@ -265,6 +279,7 @@ libcaption_stauts_t caption_frame_decode_control(caption_frame_t* frame, uint16_
 
     // Unhandled
     default:
+        status_detail_set(&frame->detail, LIBCAPTION_UNKNOWN_COMMAND);
     case eia608_control_alarm_off:
     case eia608_control_alarm_on:
     case eia608_control_text_restart:
@@ -273,14 +288,17 @@ libcaption_stauts_t caption_frame_decode_control(caption_frame_t* frame, uint16_
     }
 }
 
-libcaption_stauts_t caption_frame_decode_text(caption_frame_t* frame, uint16_t cc_data)
+libcaption_status_t caption_frame_decode_text(caption_frame_t* frame, uint16_t cc_data)
 {
     int chan;
     char char1[5], char2[5];
     size_t chars = eia608_to_utf8(cc_data, &chan, &char1[0], &char2[0]);
-
+    if (chars == 0) {
+        // if chars is 0, it is an invalid character
+        status_detail_set(&frame->detail, LIBCAPTION_INVALID_CHARACTER);
+    }
     if (eia608_is_westeu(cc_data)) {
-        // Extended charcters replace the previous charcter for back compatibility
+        // Extended charcters replace the previous character for back compatibility
         caption_frame_backspace(frame);
     }
 
@@ -295,10 +313,11 @@ libcaption_stauts_t caption_frame_decode_text(caption_frame_t* frame, uint16_t c
     return LIBCAPTION_OK;
 }
 
-libcaption_stauts_t caption_frame_decode(caption_frame_t* frame, uint16_t cc_data, double timestamp)
+libcaption_status_t caption_frame_decode(caption_frame_t* frame, uint16_t cc_data, double timestamp)
 {
     if (!eia608_parity_varify(cc_data)) {
         frame->status = LIBCAPTION_ERROR;
+        status_detail_set(&frame->detail, LIBCAPTION_PARITY_ERROR);
         return frame->status;
     }
 
@@ -312,9 +331,11 @@ libcaption_stauts_t caption_frame_decode(caption_frame_t* frame, uint16_t cc_dat
         frame->status = LIBCAPTION_OK;
     }
 
-    // skip duplicate controll commands. We also skip duplicate specialna to match the behaviour of iOS/vlc
+    // skip duplicate control commands. We also skip duplicate specialna to match the behaviour of iOS/vlc
     if ((eia608_is_specialna(cc_data) || eia608_is_control(cc_data)) && cc_data == frame->state.cc_data) {
         frame->status = LIBCAPTION_OK;
+        // we claim this is bad.. what is the case?
+        status_detail_set(&frame->detail, LIBCAPTION_DETAIL_DUPLICATE_CONTROL);
         return frame->status;
     }
 
@@ -336,7 +357,7 @@ libcaption_stauts_t caption_frame_decode(caption_frame_t* frame, uint16_t cc_dat
 
         frame->status = caption_frame_decode_text(frame, cc_data);
 
-        // If we are in paint on mode, display immiditally
+        // If we are in paint on mode, display immediately
         if (LIBCAPTION_OK == frame->status && caption_frame_painton(frame)) {
             frame->status = LIBCAPTION_READY;
         }

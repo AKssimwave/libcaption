@@ -44,9 +44,9 @@ typedef enum {
     LIBCAPTION_ERROR = 0,
     LIBCAPTION_OK = 1,
     LIBCAPTION_READY = 2
-} libcaption_stauts_t;
+} libcaption_status_t;
 
-static inline libcaption_stauts_t libcaption_status_update(libcaption_stauts_t old_stat, libcaption_stauts_t new_stat)
+static inline libcaption_status_t libcaption_status_update(libcaption_status_t old_stat, libcaption_status_t new_stat)
 {
     return (LIBCAPTION_ERROR == old_stat || LIBCAPTION_ERROR == new_stat) ? LIBCAPTION_ERROR : (LIBCAPTION_READY == old_stat) ? LIBCAPTION_READY : new_stat;
 }
@@ -72,6 +72,29 @@ typedef struct {
     uint16_t cc_data;
 } caption_frame_state_t;
 
+typedef enum {
+  LIBCAPTION_DETAIL_OFF_SCREEN              = 1 << 1,
+  LIBCAPTION_DETAIL_DUPLICATE_CONTROL       = 1 << 2,
+  LIBCAPTION_UNKNOWN_COMMAND                = 1 << 3,
+  LIBCAPTION_INVALID_CHARACTER              = 1 << 4,
+  LIBCAPTION_PARITY_ERROR                   = 1 << 5
+} caption_frame_status_detail_type;
+
+typedef struct {
+  int types;
+  int packetErrors;
+} caption_frame_status_detail_t;
+
+static inline int status_detail_is_set(const caption_frame_status_detail_t* d, const caption_frame_status_detail_type t) {
+  return d->types & t;
+}
+
+static inline void status_detail_set(caption_frame_status_detail_t* d, const caption_frame_status_detail_type t) {
+  d->types |= t;
+}
+
+void status_detail_init(caption_frame_status_detail_t* d);
+
 // timestamp and duration are in seconds
 typedef struct {
     double timestamp;
@@ -80,7 +103,8 @@ typedef struct {
     caption_frame_buffer_t front;
     caption_frame_buffer_t back;
     caption_frame_buffer_t* write;
-    libcaption_stauts_t status;
+    libcaption_status_t status;
+    caption_frame_status_detail_t detail;
 } caption_frame_t;
 
 /*!
@@ -121,7 +145,7 @@ const utf8_char_t* caption_frame_read_char(caption_frame_t* frame, int row, int 
 /*! \brief
     \param
 */
-libcaption_stauts_t caption_frame_decode(caption_frame_t* frame, uint16_t cc_data, double timestamp);
+libcaption_status_t caption_frame_decode(caption_frame_t* frame, uint16_t cc_data, double timestamp);
 /*! \brief
     \param
 */
