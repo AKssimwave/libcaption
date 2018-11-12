@@ -342,9 +342,9 @@ libcaption_status_t caption_frame_decode(caption_frame_t* frame, uint16_t cc_dat
     frame->state.cc_data = cc_data;
 
     if (frame->xds.state) {
-        frame->status = xds_decode(&frame->xds, cc_data);
+        frame->status = xds_decode(frame, cc_data);
     } else if (eia608_is_xds(cc_data)) {
-        frame->status = xds_decode(&frame->xds, cc_data);
+        frame->status = xds_decode(frame, cc_data);
     } else if (eia608_is_control(cc_data)) {
         frame->status = caption_frame_decode_control(frame, cc_data);
     } else if (eia608_is_basicna(cc_data) || eia608_is_specialna(cc_data) || eia608_is_westeu(cc_data)) {
