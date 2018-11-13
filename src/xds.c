@@ -72,6 +72,12 @@ int xds_decode(caption_frame_t* frame, uint16_t cc)
             ;
             uint8_t control_code = (cc & 0x0F00) >> 8;
             uint8_t type_code = (cc & 0x00FF);
+
+            if (control_code == 0) {
+                status_detail_set(&frame->detail, LIBCAPTION_XDS_INVALID_PKT_STRUCTURE);
+                return LIBCAPTION_ERROR;
+            }
+
             // if start code
             if (control_code % 2 != 0) {
                 // delete old information and initialize values
@@ -122,15 +128,17 @@ int xds_decode(caption_frame_t* frame, uint16_t cc)
 
                 //From (ANSI-CTA-608-E R-2014 8.6.3):
                 //Expected checksum defined as
-                //"the two's complement of the sum of the informational characters
+                //"the [7-bit] two's complement of the sum of the informational characters
                 //plus the Start, Type and End characters"
                 //Characters
-
                 uint8_t calculated_checksum = packet->class_code + packet->type_code +
                         packet->checksum + 0xF;
                 for(int i = 0; i < packet->size; i++) {
                     calculated_checksum += packet->content[i];
                 }
+
+                //convert to 2s complement by flipping all bits and adding 1 and taking 1st 7 bits
+                calculated_checksum = (~calculated_checksum + 1) & 0x7f;
 
                 if(calculated_checksum != packet->checksum) {
                     status_detail_set(&frame->detail, LIBCAPTION_XDS_CHECKSUM_ERROR);
