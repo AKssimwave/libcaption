@@ -46,7 +46,7 @@ int is_valid_type(uint8_t class, uint8_t type) {
             return type <= 0x02;
         case CLASS_RESERVED: // used arbitrarily by xds encoding equipment (ANSI-CTA-608-E R-2014 9.5)
             return 1;
-        case PRIVATE_DATA: // used arbitrarily (ANSI-CTA-608-E R-2014 9.5)
+        case PRIVATE_DATA: // used arbitrarily (ANSI-CTA-608-E R-2014 9.6)
             return 1;
         default:
             return 0;
