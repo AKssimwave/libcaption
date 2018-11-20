@@ -31,13 +31,6 @@ extern "C" {
 #define CEA608_MAX_SIZE (255)
 
 ////////////////////////////////////////////////////////////////////////////////
-typedef enum {
-    cc_type_ntsc_cc_field_1 = 0,
-    cc_type_ntsc_cc_field_2 = 1,
-    cc_type_dtvcc_packet_data = 2,
-    cc_type_dtvcc_packet_start = 3,
-} cea708_cc_type_t;
-
 typedef struct {
     unsigned int marker_bits : 5;
     unsigned int cc_valid : 1;
@@ -105,7 +98,9 @@ libcaption_status_t cea708_parse_h262(const uint8_t* data, size_t size, cea708_t
 /*! \brief
     \param
 */
-libcaption_status_t cea708_to_caption_frame(caption_frame_t* frame, cea708_t* cea708);
+libcaption_status_t cea708_to_caption_frame(caption_frame_t* frame, cea708_t* cea708,
+                                            rollup_state_machine* rsm,
+                                            popon_state_machine* psm);
 /*! \brief
     \param
 */
